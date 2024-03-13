@@ -48,10 +48,10 @@ class NNModel:
 
     def l_forward(self, dataSet: np.array):
         A = dataSet
-        for layer in range(len(self.layers)):
+        for layer_number in range(len(self.layers)):
             A_prev = A
-            layer = self.layers[layer]
-            A = layer.forward_activation_propagation(A_prev=A_prev, W=self.W[layer], b=self.b[layer])
+            layer = self.layers[layer_number]
+            A = layer.forward_activation_propagation(A_prev=A_prev, W=self.W[layer_number], b=self.b[layer_number])
         self.AL = A.astype(float)
 
     def l_backward(self):
